@@ -1,0 +1,3 @@
+[submodule "modules/gospel"]
+	path = modules/gospel
+	url = git@github.com:gospel-dev/gospel.git

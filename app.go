@@ -2,14 +2,41 @@ package demake
 
 import (
 	"fmt"
-	. "github.com/gospel-dev/gospel"
 	"os"
 	"os/signal"
 	"syscall"
+
+	. "github.com/gospel-dev/gospel"
+	"github.com/gospel-dev/gospel/css"
 )
 
+func MainMenu(c Context) Element {
+	return Ul(
+		Li("Spreadsheets"),
+		Li("Writer"),
+		Li("Tasks"),
+	)
+}
+
+func MainHeader(c Context) Element {
+	return Header(
+		Nav(
+			Ul(
+				Li("Demake"),
+				Li("max@mustermann.de"),
+			),
+		),
+	)
+}
+
 func Root(c Context) Element {
-	return Div("hey")
+	return css.CSS(
+		Div(
+			css.Flex,
+			MainHeader(c),
+			MainMenu(c),
+		),
+	)
 }
 
 func Run() {
